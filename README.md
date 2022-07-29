@@ -43,13 +43,13 @@ For Mac users, follow along with this video:
 Throughout this course, you will be downloading many assignments, so it is
 important to keep your code organized. If you haven't yet, we recommend that you
 go through the steps in
-[the previous lesson](https://github.com/learn-co-curriculum/phase-0-organizing-work-on-your-computer)
+[the previous lesson](https://github.com/learn-co-curriculum/aws-organizing-work-on-your-computer)
 to set up a directory where you can keep all of your work for this course.
 
 > **Note:** The process we'll go through in this lesson will create sub-folders
 > automatically. Whenever you are starting a new assignment, navigate back to
-> your main `prework` folder (`cd ~/Development/code/prework`) before cloning
-> the assignment to ensure these sub-folders don't get created
+> the current `module-#` folder within your `code` folder (`cd ~/Development/code`) before cloning
+> the assignment. This will ensure these sub-folders don't get created
 > _within each other_.
 
 ### Accessing GitHub and Forking
@@ -118,7 +118,7 @@ assignment (e.g. `cd ~/Development/code`). Type `git clone` and a space, then
 paste in the copied SSH link from GitHub. It should look something like this:
 
 ```console
-$ git clone git@github.com:<your-user-name>/phase-0-completing-assignments.git
+$ git clone git@github.com:<your-user-name>/aws-completing-assignments.git
 ```
 
 Press enter, and you should see a flurry of terminal activity.
@@ -144,7 +144,7 @@ name of the assignment will have been created. Change directory into this folder
 to access the assignment files.
 
 ```console
-$ cd phase-0-completing-assignments
+$ cd aws-completing-assignments
 ```
 
 Now type `code .` to open up a text editor window with access to all of the
@@ -236,14 +236,10 @@ that require slightly different submission steps:
   but it will be up to you to design and create your own app. These will
   eventually become the projects you showcase to potential employers! You will
   submit your projects in Canvas by submitting a link to your GitHub repo.
-- **Blog Submissions:** Blogs are a required part of our Software Engineering
-  courses. They help to develop your online presence and are a great way to
-  reinforce the concepts you learn. You'll write your blog posts on a different
-  platform, but submit links to them in Canvas.
 
-## Submitting Projects and Blogs
+## Submitting Projects
 
-For both portfolio projects and blog posts, you'll need to manually submit a
+For portfolio projects, you'll need to manually submit a
 link to your work on Canvas. While viewing the assignment, you should see a
 **Submit Assignment** button in the upper-right section of the page.
 
