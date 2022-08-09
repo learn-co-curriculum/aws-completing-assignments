@@ -214,7 +214,7 @@ git add README.md
 If you want to track the work done in all files within a particular folder, you could run the following instead of adding each file individually: 
 
 ```sh
-git add .
+git add -A
 ```
 
 Note that where you run these commands in the terminal matter! You must be in the directory
