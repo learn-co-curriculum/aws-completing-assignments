@@ -22,21 +22,7 @@ will need to complete work on your local machine. The general process is:
 - Submit your completed work to Canvas
 
 In this assignment, you'll learn the workflow that you will be using to complete
-your assignments. You can follow along with the steps in the videos below, or
-continue reading to get a more detailed explanation of the process of working on
-lessons in Canvas.
-
-## WSL: Completing Assignments Code Along
-
-For Windows users, follow along with this video:
-
-<iframe width="640" height="480" src="https://www.youtube.com/embed/wkM_3VZT2Nw" frameborder="0" allowfullscreen></iframe>
-
-## MacOS: Completing Assignments Code Along
-
-For Mac users, follow along with this video:
-
-<iframe width="640" height="480" src="https://www.youtube.com/embed/otfhhI-5qtM" frameborder="0" allowfullscreen></iframe>
+your assignments.
 
 ### A Quick Note on Organizing Work on Your Machine
 
@@ -105,9 +91,7 @@ should see what looks sort of like an email in the box below, starting with
 > your personal SSH key to GitHub. GitHub will store your personal copies of all
 > the work you do in this course. Because you've added your SSH key, GitHub will
 > know who you are when you send work from your local machine to GitHub to be
-> stored. Using HTTPS instead would require you to sign in from your terminal
-> using your log-in credentials each time you try to push your code to GitHub;
-> it also may not work at all for some assignments.
+> stored.
 
 From here, click the copy button.
 
@@ -161,7 +145,7 @@ machine in `README.md`.
 
 [workspace-trust]: https://code.visualstudio.com/docs/editor/workspace-trust
 
-### Completing an Assignment
+### Running Tests
 
 Most assignments will have tests that check your work and provide immediate
 feedback in the terminal. We'll walk through some examples in upcoming lessons.
@@ -171,10 +155,25 @@ assignment to your local machine. If you've followed the steps above, you've
 completed everything you need to do to pass the test; all that is left to do is
 run it.
 
-Run `learn test` in the terminal. This command will install all the lesson
-dependencies and run the test. You should again see a flurry of text as
-dependencies are installed. Then you'll see the results of your test. By cloning
-this assignment down, you've already passed the test!
+Before you can run the test, you need to install a few dependencies with `npm`.
+We will always provide you with the dependencies required for any given lesson
+in the `package.json` file, so all you will have to do is run:
+
+```sh
+npm i
+```
+
+This will install everything that is needed for the assignment you're working on. 
+Note that you will have to do this step for every assignment that provides a `package.json`. 
+
+Once you have everything installed, you can now run the actual test with the command:
+
+```sh
+npm test
+```
+
+You'll then see the results of your test. For example, if you passed this 
+assignment's test, you should see the following:
 
 ```console
 This assignment
@@ -184,90 +183,107 @@ This assignment
   1 passing (5ms)
 ```
 
+Before submitting an assignment, do your best to ensure all your tests are passing!
+
 > **Note:** If you did not receive a passing test, or if your terminal produced
 > some sort of error, walk through the steps in this lesson again and make sure
-> you've followed each one. If you got a "command not found" error, go back to
-> the [Configuring the Flatiron Student Portal](https://github.com/learn-co-curriculum/phase-0-configuring-the-flatiron-student-portal)
-> lesson and go through the steps provided there to make sure the `learn-co` gem
-> was installed correctly. If you're still receiving errors, we recommend going
-> back through the local environment setup instructions again to ensure
-> everything is set up properly.
+> you've followed each one. If you got a "command not found" error, make sure you
+> have installed all dependencies with `npm i`. If you're still receiving errors,
+> we recommend going back through the local environment setup instructions again 
+> to ensure everything is set up properly.
 
-Once the test is passing, you can head back to the assignment on Canvas. Refresh
-the assignment page and you should see that Canvas now registers the assignment
-as both **Submitted** and **Complete**. A URL to your fork of the assignment has
-been submitted in Canvas, so you are ready to move on to the next lesson.
+### Saving your Work 
 
-Each assignment will be different and will include instructions on what is
-required to complete it. Some labs will have many tests. You can run
-`learn test` as many times as you'd like while working to solve these labs. You
-will submit your work to Canvas each time you do, but the assignment will be
-marked **Incomplete** until all tests are passing.
+As you do work on the assignment and pass tests, we recommend you **save** your work, 
+both locally and remotely. Saving locally is as simple as hitting **Ctrl + S** on Windows
+or **Command + S** on Mac. Saving remotely, however, requires the use of git and GitHub.
+We will learn more about both extensively by the end of this module, but for now you just 
+need to know three main commands, in this order: 
 
-### Your Work in GitHub
+1. `git add`
+2. `git commit` 
+3. `git push` 
 
-Every time you run `learn test`, all the changes you've made locally will be
-automatically pushed to your GitHub fork of the repo. If you head back to your
-repo after running `learn test`, you should see a message that a new branch,
-`fis-wip`, has been created:
+`git add` will track all the work you've done in the files you tell it to track. 
+For example, if we only wanted to track the work done in the `README.md` file, you could run:
 
-![pr_prompt](https://curriculum-content.s3.amazonaws.com/phase-0/configuring-the-student-portal/fis-wip.jpg)
+```sh
+git add README.md
+``` 
 
-**Note:** you should **disregard** the **Compare & pull request** button.
+If you want to track the work done in all files within a particular folder, you could run the following instead of adding each file individually: 
 
-This branch contains the work you've done so far. If you ever want to go back to
-a previous solution, go to your repository on GitHub and switch to the `fis-wip`
-branch.
+```sh
+git add -A
+```
 
-## Types of Assignments
+Note that where you run these commands in the terminal matter! You must be in the directory
+that contains the files for the assignment. Typically, this means the folder that you 
+cloned down earlier. For this assignment, that would be the `aws-completing-assignments` folder. 
 
-For most assignments, you will go through the process we just walked through. In
-our curriculum, these assignments are often referred to as **labs** — coding
-lessons that include tests. There are a few other types of assignments, though,
-that require slightly different submission steps:
+Once you've tracked all the work you want to save, you can them commit to saving the 
+changes with `git commit`. When you commit your work, you **must** include a message 
+stating what work you've done in this commit. 
 
-- **Code-alongs:** These also require code, but will guide you through what
-  needs to be written. There are no tests to pass, but you will still need to go
-  through forking, cloning, and running `learn test`. You should see a message
-  stating that no tests were found, but if you check the assignment in Canvas,
-  you should see it is marked as **Complete**.
-- **Portfolio Projects:** For these assignments, you'll be building fully
-  functional applications. Some guidelines and requirements will be provided,
-  but it will be up to you to design and create your own app. These will
-  eventually become the projects you showcase to potential employers! You will
-  submit your projects in Canvas by submitting a link to your GitHub repo.
+To include a message with your commit, the command is: 
 
-## Submitting Projects
+```sh
+git commit -m "your short message here"
+```
 
-For portfolio projects, you'll need to manually submit a
-link to your work on Canvas. While viewing the assignment, you should see a
-**Submit Assignment** button in the upper-right section of the page.
+We'll learn more about making good commits later on, but typically they should be succint.
+For now, they can say things like "complete first test" or "finish tests 1-3" or similar.
+
+Finally, now that you've tracked all the changes you made and committed them all to 
+be saved, you can push those changes up to a remote location. This remote location 
+typically will be the repository you forked earlier. To do so, you "push" the changes 
+up with the following command: 
+
+```sh
+git push origin main
+```
+
+Again, we will cover what all these commands mean in more detail later in this module. 
+For now, just know that you must run all three of these commands in this order before 
+you submit any assignment. 
+
+### Submitting an Assignment
+
+Once the test is passing and you've pushed your work up to your forked copy, 
+you can head back to the assignment on Canvas. While viewing the assignment,
+you should see a **Submit Assignment** _or_ **Start Assignment** button in 
+the upper-right section of the page.
 
 ![submit assignment button](https://curriculum-content.s3.amazonaws.com/canvas-welcome/submit-assignment-canvas.png)
 
 Clicking this button will bring you to the bottom of the page where you can
-submit a URL link to your work.
+submit a URL link to your work. The link you should submit is **your forked** 
+version of the assignment. Make sure it's **your version** of the repo by 
+ensuring the link includes your GitHub username in the URL.
 
 ![submit assignment form](https://curriculum-content.s3.amazonaws.com/canvas-welcome/submit-assignment-canvas-form.png)
 
 Upon submission you should see confetti appear, indicating that your submission
 has been accepted.
 
-> **Note:** It is possible to submit lab and code-along assignments manually
-> this way. However, the assignment will only be marked as **Submitted**, not
-> **Complete**.
+Each assignment will be different and will include instructions on what is
+required to complete it. Some labs will have many tests. You can run
+`npm test` as many times as you'd like while working to solve these labs. Just
+don't forget to submit your GitHub repository link once you're done!
 
 ## Conclusion
 
-Congratulations! You've completed your first assignment using the `learn-co`
-gem! You now know how to work on and submit assignments going forward:
+Congratulations! You've completed your first assignment! You now know how to work on 
+and submit assignments going forward:
 
 - Click the **Fork** button on the Canvas assignment
 - Once the assignment is forked, clone it down to your local machine
-- Complete any required work, then run `learn test`
-- When all tests pass, the assignment will be submitted to Canvas and marked as
-  **Complete**
-- Your work will also be pushed to GitHub and will be available on the `fis-wip`
-  branch
+- Complete any required work, then run `npm i` and `npm test`
+- As you complete tests, run the following three `git` commands to save your work remotely:
+  - `git add .`
+  - `git commit -m "short message here"`
+  - `git push origin main`
+- When all tests are passing, go back to the Canvas assignment and submit the link to
+**your forked version** of the assignment's GitHub repo  
 
 Equipped with this knowledge, you are now ready to tackle greater challenges!
